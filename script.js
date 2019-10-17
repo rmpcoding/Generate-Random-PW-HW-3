@@ -41,31 +41,41 @@ var generateClick = document.getElementById("generate").addEventListener("click"
 
 // if user chooses true on first prompt (special characters)
 
+// iterate through special characters array
+
+// no else statement if false since it will go on to the next array 
+
 if (userSpecialCharacters === true) {
   for (var i = 0; i < specCharArr.length; i++) {
     console.log(i);
   }
-} else {
-  console.log("go on to next somehow");
-}
-
-// do something?
-
-// else do something else.
+} 
 
 // if user chooses true on second prompt (lowercase letters)
 
-// do something?
+// iterate through lowercase letters array
 
-// else do something else.
+// no else statement if false since it will go on to the next array 
+
+if (userLowerCase === true) {
+  for (var i = 0; i < lowerCaseArr.length; i++) {
+    // 
+    console.log(i);
+  }
+} 
 
 // if user chooses false on third prompt (uppercase letters)
 
-// do something?
+// iterate through uppercase letters array
 
-// else do something else.
+// no else statement if false since it will go on to the next array 
 
-
+if (userUpperCase === true) {
+  for (var i = 0; i < upperCaseArr.length; i++) {
+    // 
+    console.log(i);
+  }
+} 
 
 
 
