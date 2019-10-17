@@ -41,6 +41,14 @@ var generateClick = document.getElementById("generate").addEventListener("click"
 
 // if user chooses true on first prompt (special characters)
 
+if (userSpecialCharacters === true) {
+  for (var i = 0; i < specCharArr.length; i++) {
+    console.log(i);
+  }
+} else {
+  console.log("go on to next somehow");
+}
+
 // do something?
 
 // else do something else.
@@ -65,15 +73,14 @@ var generateClick = document.getElementById("generate").addEventListener("click"
 
 
 
-
-
 var resultArr = [];
+var resu = 7;
 
 
 function hello() {
-  for (var i = 0; i < 9; i++) {
-    resultArr.push[i];
+  for (var i = 0; i < 3; i++) {
+    resultArr.push(i);
   }
-  console.log(resultArr[i]);
+  console.log(resultArr);
 }
 
