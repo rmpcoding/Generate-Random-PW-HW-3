@@ -82,9 +82,17 @@ if (userUpperCase === true) {
 
 // generate a random number using math.floor.random
 
+var randomNumber = Math.floor(Math.random() * specCharArr.length);
+console.log(randomNumber);
+
+
+
+
+
+// create a result array to push stuff into
 
 var resultArr = [];
-var resu = 7;
+
 
 
 // the function below is just a test function to see if my code is working properly. it is. 
@@ -96,3 +104,5 @@ function hello() {
   console.log(resultArr);
 }
 
+
+// alert the user of the new password (result array)
