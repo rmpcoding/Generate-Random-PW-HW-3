@@ -70,16 +70,18 @@ if (userSpecialCharacters === true) {
 
 
 
-
+// generate a random number using math.floor.random
 
 
 var resultArr = [];
 var resu = 7;
 
 
+// the function below is just a test function to see if my code is working properly. it is. 
+
 function hello() {
-  for (var i = 0; i < 3; i++) {
-    resultArr.push(i);
+  for (var i = 0; i < userLength; i++) {
+    resultArr.push(userLength.length);
   }
   console.log(resultArr);
 }
