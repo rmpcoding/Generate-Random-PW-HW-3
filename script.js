@@ -33,30 +33,26 @@ function userPrompts() {
   if (userLength < 8 || userLength > 128) {
     prompt("Please choose at least 8 characters, and no more than 128. Please try again.");
   }
-
-  // prompt user to decide yes/no for special characters
   
+  // prompt user to decide yes/no for special characters
   var userSpecialCharacters = confirm("Click Okay if you want to use special characters, or else click cancel");
   console.log(userSpecialCharacters);
-
-  // prompt user to decide yes/no for numbers
-
+  
+    // prompt user to decide yes/no for numbers
   var userNumbers = confirm("Click Okay if you want to use number characters, or else click cancel");
   console.log(userNumbers);
   
-  // prompt user to decide yes/no for lower case letters
-  
+    // prompt user to decide yes/no for lower case letters
   var userLowerCase = confirm("Click Okay if you want to use lowercase characters, or else click cancel");
   console.log(userLowerCase);
   
-  // prompt user to decide yes/no for upper case letters
-  
+    // prompt user to decide yes/no for upper case letters
   var userUpperCase = confirm("Click Okay if you want to use uppercase characters, or else click cancel");
   console.log(userUpperCase);
 
   // if user chooses nothing, iterate over cycle to give user another chance to input correctly
 
-  if (userSpecialCharacters === false && userLowerCase === false && userUpperCase === false) {
+  if (userSpecialCharacters === false && userNumbers === false && userLowerCase === false && userUpperCase === false) {
     alert("Please okay a criterion least once")
     userPrompts();
   }
@@ -67,6 +63,31 @@ userPrompts();
 
 
 // ___________________________________________________________________________________________________________________________________________________
+
+// if all criteria are met. 
+// How do i invoke the variables within a function? do they need to be placed globally? If I place it outside, the code won't execute properly. Unsure why.
+
+
+if (userSpecialCharacters === true && userNumbers === true && userLowerCase === true && userUpperCase === true) {
+  console.log("heyyyy");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     // var trueSpecialCharacters = 0;
     // var trueLowerCase = 1;
