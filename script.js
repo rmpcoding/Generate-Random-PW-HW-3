@@ -61,7 +61,6 @@ function userPrompts() {
   
   if (userLowerCase === true) {
     for (var i = 0; i < lowerCaseArr.length; i++) {
-      // 
       console.log(i);
     }
   } 
@@ -74,10 +73,14 @@ function userPrompts() {
   
   if (userUpperCase === true) {
     for (var i = 0; i < upperCaseArr.length; i++) {
-      // 
       console.log(i);
     }
   } 
+
+  // if user chooses nothing, default to random password 
+  // OR
+  // if user chooses nothing, iterate over cycle to give user another chance to input correctly
+
 }
 
 userPrompts();
@@ -118,8 +121,8 @@ function hello() {
 
   var resultArr = [];
 
-  for (var i = 0; i < userLength; i++) {
-    resultArr.push("hello");
+  for (var i = 0; i < 1; i++) {
+    resultArr.push("hello, you need to call on an array argument to push into the result array.");
     console.log(resultArr);
   }
 }
