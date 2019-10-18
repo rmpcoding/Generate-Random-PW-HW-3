@@ -21,8 +21,7 @@ console.log(userLength);
 
 
 
-
-// __________userPrompts function below_______ //
+// ______________________________userPrompts function below___________________________________ //
 
 function userPrompts() {
 
@@ -34,7 +33,6 @@ function userPrompts() {
   
   var userSpecialCharacters = confirm("Click Okay if you want to use special characters, or else click cancel");
   console.log(userSpecialCharacters);
-  
   
   // prompt user to decide yes/no for lower case letters
   
@@ -73,7 +71,7 @@ function userPrompts() {
   // if user chooses false on third prompt (uppercase letters)
   
   // iterate through uppercase letters array
-  
+
   // no else statement if false since it will go on to the next array 
   
   if (userUpperCase === true) {
@@ -82,35 +80,66 @@ function userPrompts() {
     }
   } 
 
-  // if user chooses nothing, default to random password 
-  // OR
   // if user chooses nothing, iterate over cycle to give user another chance to input correctly
 
   if (userSpecialCharacters === false && userLowerCase === false && userUpperCase === false) {
     alert("Please okay a criterion least once")
     userPrompts();
-    console.log("Eureka! it works!");
   }
+
+// ___________________________________________________________________________________________________________________________________________________
+
+
+    // generate a random number using math floor math random methods to iterate over four arrays
+    
+    // can I create a function inside of a function? 
+
+    
+    var randomNumber = Math.floor(Math.random() * 4);
+    console.log(`hello, I'm a random number: ${randomNumber}`);
+    
+    
+    // var trueSpecialCharacters = 0;
+    // var trueLowerCase = 1;
+    // var trueUpperCase = 2;
+    
+    if (userSpecialCharacters === true) {
+      hello();
+      console.log("hi, I'm a true statement");
+    }
+    
+
+    
+    
+    // Assign numbers 0, 1, 2, 3 to arrays;
+    
+    // if (randomNumber === 0 && userSpecialCharacters === true) then push into array
+    
+    // if (randomNumber === 1 && userLowerCase === true) then push into array
+    
+    // if (randomNumber === 2 && userUpperCase === true) then push into array
+    
+    // remember to ensure the user selects at least one criteria
+    
+  
+
 }
 
 userPrompts();
 
+// _________________create a function to assign numbers to arrays_______________________ //
 
 
-// generate a random number using math floor math random methods to iterate over four arrays
 
-var randomNumber = Math.floor(Math.random() * 4);
-console.log(`hello, I'm a ${randomNumber} random number`);
+// function generateRandomNumbers() {
 
-// Assign numbers 0, 1, 2, 3 to arrays;
+// }
+// // above this line is the end of the function curly bracket
 
-// if (randomNumber === 0 && userSpecialCharacters === true) then push into array
+// generateRandomNumbers();
 
-// if (randomNumber === 1 && userLowerCase === true) then push into array
 
-// if (randomNumber === 2 && userUpperCase === true) then push into array
 
-// remember to ensure the user selects at least one criteria
 
 
 
@@ -127,11 +156,11 @@ var generateClick = document.getElementById("generate").addEventListener("click"
 
 
 
-function hello(x) {
+function hello() {
 
   var resultArr = [];
 
-  for (var i = 0; i < 1; i++) {
+  for (var i = 0; i < userLength.length; i++) {
     resultArr.push("hello, you need to call on an array argument to push into the result array.");
     console.log(resultArr);
   }
