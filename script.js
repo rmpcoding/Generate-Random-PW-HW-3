@@ -19,6 +19,11 @@ var userLength = prompt("How many characters do you want? Choose between 8 - 128
 console.log(userLength);
 
 
+
+
+
+// __________userPrompts function below_______ //
+
 function userPrompts() {
 
   if (userLength < 8 || userLength > 128) {
@@ -49,7 +54,7 @@ function userPrompts() {
   
   if (userSpecialCharacters === true) {
     for (var i = 0; i < specCharArr.length; i++) {
-      console.log(i);
+      console.log("Special Characters work");
     }
   } 
   
@@ -61,7 +66,7 @@ function userPrompts() {
   
   if (userLowerCase === true) {
     for (var i = 0; i < lowerCaseArr.length; i++) {
-      console.log(i);
+      console.log("lowercase works");
     }
   } 
   
@@ -73,7 +78,7 @@ function userPrompts() {
   
   if (userUpperCase === true) {
     for (var i = 0; i < upperCaseArr.length; i++) {
-      console.log(i);
+      console.log("uppercase works");
     }
   } 
 
@@ -81,6 +86,11 @@ function userPrompts() {
   // OR
   // if user chooses nothing, iterate over cycle to give user another chance to input correctly
 
+  if (userSpecialCharacters === false && userLowerCase === false && userUpperCase === false) {
+    alert("Please okay a criterion least once")
+    userPrompts();
+    console.log("Eureka! it works!");
+  }
 }
 
 userPrompts();
@@ -117,7 +127,7 @@ var generateClick = document.getElementById("generate").addEventListener("click"
 
 
 
-function hello() {
+function hello(x) {
 
   var resultArr = [];
 
