@@ -17,9 +17,9 @@ var nestedArr = [];
 
 
 
-// console.log(randomArgue1);
-// console.log(randomArgue2);
-// console.log(nestedArr[randomArgue1][randomArgue2]);
+// console.log(randomNumber1);
+// console.log(randomNumber2);
+// console.log(nestedArr[randomNumber1][randomNumber2]);
 
 // ______________________________userPrompts below______________________________________________________ //
 // prompt user to choose between 8 and 128 for length of pw
@@ -28,17 +28,25 @@ var nestedArr = [];
 // create a userLength function
 
 var userLength = prompt("How many characters do you want? Choose between 8 - 128.");
+  parseInt(userLength);
 console.log(userLength);
+
+// returns userLength as a number datatype below
+// userLength = parseInt(userLength);
 
 if (userLength < 8 || userLength > 128) {
   prompt("Please choose at least 8 characters, and no more than 128. Please try again.");
 } else if (typeof userLength !== "number") {
   prompt("Please choose at least 8 characters, and no more than 128. Please try again.");
 }
+console.log(typeof userLength);
+
+
+
 
 // what if it's null (i.e. someone enters letters)
 
-// ______________________________userPrompts function below_____________________________________________ //
+// ______________________________userPrompts function below, along with conditionals for for loop_____________________________________________ //
 
 function userPrompts() {
   
@@ -88,8 +96,8 @@ function userPrompts() {
 
   // generate a random number using math floor math random methods to iterate over four arrays
   
-  var randomArgue1 = Math.floor(Math.random() * nestedArr.length); // 4
-  var randomArgue2 = Math.floor(Math.random() * nestedArr[randomArgue1].length); //inside array length
+  var randomNumber1 = Math.floor(Math.random() * nestedArr.length); 
+  var randomNumber2 = Math.floor(Math.random() * nestedArr[randomNumber1].length);
   
   var userPassword = "";
 
@@ -97,10 +105,10 @@ function userPrompts() {
     // select random index of array
     // select random index of inside array
     // concat such character to userPassword
-    userPassword = userPassword + nestedArr[randomArgue1][randomArgue2]; 
+    userPassword = userPassword + nestedArr[randomNumber1][randomNumber2]; 
 
-    randomArgue1 = Math.floor(Math.random() * nestedArr.length); 
-    randomArgue2 = Math.floor(Math.random() * nestedArr[randomArgue1].length); 
+    randomNumber1 = Math.floor(Math.random() * nestedArr.length); 
+    randomNumber2 = Math.floor(Math.random() * nestedArr[randomNumber1].length); 
 
     
   }
@@ -124,10 +132,16 @@ function userPrompts() {
   // if not true
   // move on to next loop
 
+
+
+
+
+
+  
   // user inputs number (this is not housed within the userPrompt function)
   // retrieve user-inputted number 
   // use that as length for randomized number generator
-  // iterate through nestedArr with both randomArgue1 and randomArgue2 as arguments
+  // iterate through nestedArr with both randomNumber1 and randomNumber2 as arguments
 
 
   // __________acts as a function below becausae it's housed within the userPrompt function___________________________________
