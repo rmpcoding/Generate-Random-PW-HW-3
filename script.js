@@ -7,48 +7,76 @@ var numbersArr = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var lowerCaseArr= ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var upperCaseArr = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
-// create object with arrays inside
+// create empty nested array
+// push only what user chooses into nested array 
 
-var obj = {
-  specCharArr: ["[", "]", "!", "/", "^", "$", "|", "?", "*", "+", "(", ")"],
-  numbersArr: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
-  lowerCaseArr: ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"],
-  upperCaseArr: ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
-}
+var nestedArr = [];
 
-console.log(obj.upperCaseArr[2]);
+// console.log(nestedArr);
 
+
+
+
+// console.log(randomArgue1);
+// console.log(randomArgue2);
+// console.log(nestedArr[randomArgue1][randomArgue2]);
 
 // ______________________________userPrompts below______________________________________________________ //
 // prompt user to choose between 8 and 128 for length of pw
 // prompt to try again if user doesn't meet criteria (at very bottom)
 
+// create a userLength function
+
 var userLength = prompt("How many characters do you want? Choose between 8 - 128.");
 console.log(userLength);
+
+if (userLength < 8 || userLength > 128) {
+  prompt("Please choose at least 8 characters, and no more than 128. Please try again.");
+} else if (typeof userLength !== "number") {
+  prompt("Please choose at least 8 characters, and no more than 128. Please try again.");
+}
+
+// what if it's null (i.e. someone enters letters)
 
 // ______________________________userPrompts function below_____________________________________________ //
 
 function userPrompts() {
-
-  if (userLength < 8 || userLength > 128) {
-    prompt("Please choose at least 8 characters, and no more than 128. Please try again.");
-  }
   
   // prompt user to decide yes/no for special characters
   var userSpecialCharacters = confirm("Click Okay if you want to use special characters, or else click cancel");
   console.log(userSpecialCharacters);
+
+  // defaults to checking whether the statement below is true
+  if (userSpecialCharacters) {
+      nestedArr.push(specCharArr);
+  }
   
     // prompt user to decide yes/no for numbers
   var userNumbers = confirm("Click Okay if you want to use number characters, or else click cancel");
   console.log(userNumbers);
+
+    // defaults to checking whether the statement below is true
+    if (userNumbers) {
+      nestedArr.push(numbersArr);
+  }
   
     // prompt user to decide yes/no for lower case letters
   var userLowerCase = confirm("Click Okay if you want to use lowercase characters, or else click cancel");
   console.log(userLowerCase);
+
+    // defaults to checking whether the statement below is true
+    if (userLowerCase) {
+      nestedArr.push(lowerCaseArr);
+  }
   
     // prompt user to decide yes/no for upper case letters
   var userUpperCase = confirm("Click Okay if you want to use uppercase characters, or else click cancel");
   console.log(userUpperCase);
+
+    // defaults to checking whether the statement below is true
+    if (userUpperCase) {
+      nestedArr.push(upperCaseArr);
+  }
 
   // if user chooses nothing, iterate over cycle to give user another chance to input correctly
 
@@ -56,48 +84,106 @@ function userPrompts() {
     alert("Please okay a criterion least once")
     userPrompts();
   }
+
+
+  // generate a random number using math floor math random methods to iterate over four arrays
+  
+  var randomArgue1 = Math.floor(Math.random() * nestedArr.length); // 4
+  var randomArgue2 = Math.floor(Math.random() * nestedArr[randomArgue1].length); //inside array length
+  
+  var userPassword = "";
+
+  for (var i = 0; i < userLength; i++) {
+    // select random index of array
+    // select random index of inside array
+    // concat such character to userPassword
+    userPassword = userPassword + nestedArr[randomArgue1][randomArgue2]; 
+
+    randomArgue1 = Math.floor(Math.random() * nestedArr.length); 
+    randomArgue2 = Math.floor(Math.random() * nestedArr[randomArgue1].length); 
+
+    
+  }
+  
+  console.log(userPassword);
+
+
+// select text box by id // document.getelementbyid
+// update textContent with value of user password
+// .innerText() --pass in userPassword
+
+
+
+
+
+
+
+
+  // if true
+  // iterate through loop
+  // if not true
+  // move on to next loop
+
+  // user inputs number (this is not housed within the userPrompt function)
+  // retrieve user-inputted number 
+  // use that as length for randomized number generator
+  // iterate through nestedArr with both randomArgue1 and randomArgue2 as arguments
+
+
+  // __________acts as a function below becausae it's housed within the userPrompt function___________________________________
+
+
+  // if user confrims true to special characters, run loop to extract random special characters
+
+
+
+
+
+
+
 }
 
 userPrompts();
+
+
+
+// nested array is empty [] (descriptive name for array)
+// if user chooses true characters (any)
+// push array into empty nested array [].
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Calling the function above.
 
 
 // ___________________________________________________________________________________________________________________________________________________
 
-// if all criteria are met. 
-// How do i invoke the variables within a function? do they need to be placed globally? If I place it outside, the code won't execute properly. Unsure why.
-
-
-if (userSpecialCharacters === true && userNumbers === true && userLowerCase === true && userUpperCase === true) {
-  console.log("heyyyy");
-}
 
 
 
 
 
+//create eventlistener to start rolling out the function when the user clicks on the generate password button.
+
+// var generateClick = document.getElementById("generate").addEventListener("click", randomLoop); 
+
+// var displayPassWord = document.getElementById("password").addEventListener("click")
 
 
-
-
-
-
-
-
-
-
-
-
-
-    // var trueSpecialCharacters = 0;
-    // var trueLowerCase = 1;
-    // var trueUpperCase = 2;
-    
-    // if (userSpecialCharacters === true) {
-    //   randomLoop();
-    //   console.log("hi, I'm a true statement");
-    // }
-    
 
     
     // Assign numbers 0, 1, 2, 3 to arrays;
@@ -116,87 +202,6 @@ if (userSpecialCharacters === true && userNumbers === true && userLowerCase === 
 
 
 
-//create eventlistener to start rolling out the function when the user clicks on the generate password button.
-
-// var generateClick = document.getElementById("generate").addEventListener("click", randomLoop); 
-
-// var displayPassWord = document.getElementById("password").addEventListener("click")
-
-
-    // generate a random number using math floor math random methods to iterate over four arrays
-    
-
-    
-    var randomNumberSpecChar = Math.floor(Math.random() * specCharArr.length);
-    var randomNumberLowerCase = Math.floor(Math.random() * lowerCaseArr.length);
-    var randomNumberUpperCase = Math.floor(Math.random() * upperCaseArr.length);
-
-    console.log(randomNumberSpecChar);
-    console.log(randomNumberLowerCase);
-    console.log(randomNumberUpperCase);
-
-    console.log(`hello, I'm a random number: ${randomNumberSpecChar}`);
-    console.log(`hello, I'm a random number: ${randomNumberLowerCase}`);
-    console.log(`hello, I'm a random number: ${randomNumberUpperCase}`);
-    
-
-
-
-
-
-
-
-
-
-
-
-// the function below is not exactly what I want. Most likely will abandon this one. 
-
-function randomLoop(length, characters) {
-
-  var resultString = "";
-
-  for (var i = 0; i < length; i++) {
-    resultString += characters.charactersAt(Math.floor(Math.random() * characters.length));
-    console.log("hello, you need to call on an array argument to push into the result array.");
-    console.log(resultString);
-  }
-  return resultString;
-}
-
-randomLoop(length, characters);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// need a function with two arguments.
-
-
-
-
-
-
-
-
-// count+=Math.random
-
-
-
-
-
-
 // alert the user of the new password (result array)
 
 
@@ -204,42 +209,13 @@ randomLoop(length, characters);
 
 
 
+  // if all criteria are met. 
+          // if (userSpecialCharacters === true && userNumbers === true && userLowerCase === true && userUpperCase === true) {
+          //   console.log("heyyyy, you can try the loop now");
+          // }
 
-  // // if statements below are just tests to see if it works______________________________________extraneous code.
-  
-  // // if user chooses true on first prompt (special characters)
-  
-  // // iterate through special characters array
-  
-  // // no else statement if false since it will go on to the next array 
-  
-  // if (userSpecialCharacters === true) {
-  //   for (var i = 0; i < specCharArr.length; i++) {
-  //     console.log("Special Characters work");
-  //   }
-  // } 
-  
-  // // if user chooses true on second prompt (lowercase letters)
-  
-  // // iterate through lowercase letters array
-  
-  // // no else statement if false since it will go on to the next array 
-  
-  // if (userLowerCase === true) {
-  //   for (var i = 0; i < lowerCaseArr.length; i++) {
-  //     console.log("lowercase works");
-  //   }
-  // } 
-  
-  // // if user chooses false on third prompt (uppercase letters)
-  
-  // // iterate through uppercase letters array
 
-  // // no else statement if false since it will go on to the next array 
-  
-  // if (userUpperCase === true) {
-  //   for (var i = 0; i < upperCaseArr.length; i++) {
-  //     console.log("uppercase works");
-  //   }
-  // } 
-  // if statements above are just tests to see if it works______________________________________extraneous code.
+            // specCharArr,
+  // numbersArr,
+  // lowerCaseArr,
+  // upperCaseArr
