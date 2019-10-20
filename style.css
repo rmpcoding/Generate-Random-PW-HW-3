@@ -1,0 +1,14 @@
+body {
+  background-image: url(./Images/artificial-intelligence-3382507_1920.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+/* #contain {
+  background-color: white;
+} */
+
+h1 , h2 {
+  background-color: white;
+} 

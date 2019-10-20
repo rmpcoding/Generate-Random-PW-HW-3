@@ -96,6 +96,23 @@ function successfulPasswordLength() {
 }
 successfulPasswordLength();
 
+
+// tried to create failsafe but it didn't work out.____________________________________________________________________________________________________________________________________________________
+
+var userFailsCriteria =
+  "Sorry, you need to enter between 8 - 128 numeric characters. Please try again.";
+
+function testUserParameters() {
+  if (parseInt(userLength) < 8 || parseInt(userLength) > 128) {
+    // alert(userFailsCriteria);
+    getLengthOfCharacters();
+  } else {
+    successfulPasswordLength();
+  }
+}
+
+
+
 // ______________________________userPrompts function below, along with conditionals for for loop_____________________________________________ //
 
 function userPrompts() {
@@ -176,21 +193,31 @@ function userPrompts() {
     randomNumber1 = Math.floor(Math.random() * nestedArr.length);
     randomNumber2 = Math.floor(Math.random() * nestedArr[randomNumber1].length);
 
-    var displayPassWord = document
+    var displayPassword = document
       .getElementById("generate")
       .addEventListener("click", function() {
         document.getElementById("password").innerText = userPassword;
       });
 
-    // select text box by id // document.getelementbyid
-    // update textContent with value of user password
-    // .innerText() --pass in userPassword
+    var textArea = document.getElementById("password");
+    var copyPassword = document.getElementById("copy");
+
+    copyPassword.onclick = function() {
+      textArea.select();
+      console.log("hello");
+      document.execCommand("copy");
+    }
+
+
+
+
+
 
     //create eventlistener to start rolling out the function when the user clicks on the generate password button.
 
     // var generateClick = document.getElementById("generate").addEventListener("click", );
 
-    // var displayPassWord = document.getElementById("password").addEventListener("click")
+    // displayPassword = document.getElementById("password").addEventListener("click")
 
     // alert the user of the new password (result array)
   }
@@ -221,18 +248,6 @@ function userPrompts() {
 // }
 // what if it's null (i.e. someone enters letters)
 
-// tried to create failsafe but it didn't work out.____________________________________________________________________________________________________________________________________________________
 
-// var userFailsCriteria =
-//   "Sorry, you need to enter between 8 - 128 numeric characters. Please try again.";
-
-// function testUserParameters() {
-//   if (parseInt(userLength) < 8 || parseInt(userLength) > 128) {
-//     // alert(userFailsCriteria);
-//     getLengthOfCharacters();
-//   } else {
-//     successfulPasswordLength();
-//   }
-// }
 
 // learn about scope / scoping
