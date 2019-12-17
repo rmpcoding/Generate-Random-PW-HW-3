@@ -80,11 +80,22 @@ var copyPassword = document.getElementById("copy");
 // ===================================================================================================
 
 handleGeneratePassword.addEventListener("click", function() {
+  clear(); //this function doesn't work properly yet. Still need to figure out the logic behind it.
   initialPrompt();
   validateLength();
 });
 
+// CLEARS PASSWORD ON GENERATE PASSWORD BUTTON CLICK EVENT (NO REFRESH NECESSARY)
+// ===================================================================================================
+clear = () => {
+  userPassword = "";
+};
+
+// PROMPT TO ASK HOW MANY CHARACTERS
+// ===================================================================================================
+
 initialPrompt = () => {
+
   userLength = prompt(
     "How many characters do you want? Choose between 8 - 128."
   );
@@ -194,6 +205,7 @@ function userPrompts() {
 var userPassword = "";
 
 passwordGenerator = () => {
+  
   randomNumber1 = Math.floor(Math.random() * nestedArr.length);
   randomNumber2 = Math.floor(Math.random() * nestedArr[randomNumber1].length);
 
@@ -202,21 +214,8 @@ passwordGenerator = () => {
     randomNumber1 = Math.floor(Math.random() * nestedArr.length);
     randomNumber2 = Math.floor(Math.random() * nestedArr[randomNumber1].length);
   }
-  textArea.append(userPassword);
-  clear(); //this function doesn't work properly yet. Still need to figure out the logic behind it.
+  textArea.textContent = userPassword;
 };
 
-// NEXT STEPS: WORK ON CLEAR FUNCTION
 // NEXT STEPS: CREATE README FILE
 // ===================================================================================================
-clear = () => {
-  handleGeneratePassword.addEventListener("click", function() {
-    return textArea.append("");
-  });
-};
-
-
-// user has generated password, but needs to generate another one without refreshing page
-// user clicks generate password button again
-// textArea needs to clear
-// run process over again
