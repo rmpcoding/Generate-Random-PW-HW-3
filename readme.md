@@ -2,7 +2,7 @@
 
 Password Generator is a JavaScript program used for dealing with instant, randomized password generation.
 
-![Password Generator Image](Images/Screen Shot 2019-12-17 at 3.28.02 PM.png?raw=true "Screen shot of web page.")
+![image](https://user-images.githubusercontent.com/55468908/71043512-b126da80-20e3-11ea-9fbc-4c743d5665a8.png)
 
 
 ## Usage
