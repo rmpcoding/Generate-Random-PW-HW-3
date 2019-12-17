@@ -78,14 +78,31 @@ var copyPassword = document.getElementById("copy");
 
 // HANDLE GENERATE PASSWORD BUTTON EVENT
 // ===================================================================================================
-var userLength = parseInt(userLength);
 
 handleGeneratePassword.addEventListener("click", function() {
+  initialPrompt();
+  validateLength();
+});
+
+initialPrompt = () => {
   userLength = prompt(
     "How many characters do you want? Choose between 8 - 128."
   );
-  validateLength();
-});
+};
+
+// VALIDATE LENGTH && NUMBERS FUNCTION
+// ===================================================================================================
+
+validateLength = () => {
+  invalidLength = userLength < 8 || userLength > 128;
+  if (invalidLength === true || isNaN(userLength) === true) {
+    alert("Please use a valid number between 8 - 128");
+    initialPrompt();
+    validateLength();
+  } else {
+    userPrompts(); //this is the main function that runs everything
+  }
+};
 
 // COPY PASSWORD BUTTON FUNCTION
 // ===================================================================================================
@@ -95,20 +112,6 @@ copyPassword.onclick = function() {
   document.execCommand("copy");
 };
 
-// VALIDATE LENGTH FUNCTION
-// ===================================================================================================
-
-var invalidLength = userLength < 8 || userLength > 128;
-
-validateLength = () => {
-  invalidLength = userLength < 8 || userLength > 128;
-  if (invalidLength) {
-    validateLength(); //starts the process over again
-  } else {
-    userPrompts(); //this is the main function that runs everything
-  }
-};
-
 // PROMPTS USER TO DECIDE ON SPECIAL CHARACTERS
 // ===================================================================================================
 
@@ -116,7 +119,7 @@ specialChar = () => {
   userSpecialCharacters = confirm(
     "Click Okay if you want to use special characters, or else click cancel"
   );
-  // defaults to checking whether the statement below is true
+
   if (userSpecialCharacters) {
     nestedArr.push(specCharArr);
   }
@@ -129,7 +132,7 @@ numberChar = () => {
   userNumbers = confirm(
     "Click Okay if you want to use number characters, or else click cancel"
   );
-  // defaults to checking whether the statement below is true
+
   if (userNumbers) {
     nestedArr.push(numbersArr);
   }
@@ -142,7 +145,7 @@ lowercaseChar = () => {
   userLowerCase = confirm(
     "Click Okay if you want to use lowercase characters, or else click cancel"
   );
-  // defaults to checking whether the statement below is true
+
   if (userLowerCase) {
     nestedArr.push(lowerCaseArr);
   }
@@ -155,7 +158,7 @@ uppercaseChar = () => {
   userUpperCase = confirm(
     "Click Okay if you want to use uppercase characters, or else click cancel"
   );
-  // defaults to checking whether the statement below is true
+
   if (userUpperCase) {
     nestedArr.push(upperCaseArr);
   }
@@ -170,7 +173,7 @@ function userPrompts() {
   lowercaseChar();
   uppercaseChar();
 
-  // if user chooses nothing, iterate over cycle to give user another chance to input correctly
+  // (if user chooses nothing, iterate over cycle to give user another chance to input correctly)
 
   if (
     userSpecialCharacters === false &&
@@ -178,7 +181,7 @@ function userPrompts() {
     userLowerCase === false &&
     userUpperCase === false
   ) {
-    alert("Please choose at least one criterion");
+    alert("Please choose at least one type of character");
     userPrompts();
   } else {
     passwordGenerator();
@@ -189,14 +192,10 @@ function userPrompts() {
 // ===================================================================================================
 
 var userPassword = "";
-var randomNumber1;
-var randomNumber2;
 
 passwordGenerator = () => {
   randomNumber1 = Math.floor(Math.random() * nestedArr.length);
   randomNumber2 = Math.floor(Math.random() * nestedArr[randomNumber1].length);
-
-  userPassword = "";
 
   for (var i = 0; i < userLength; i++) {
     userPassword = userPassword + nestedArr[randomNumber1][randomNumber2];
@@ -204,23 +203,20 @@ passwordGenerator = () => {
     randomNumber2 = Math.floor(Math.random() * nestedArr[randomNumber1].length);
   }
   textArea.append(userPassword);
-  // clear();
-  // need to add logic here to start password again.
+  clear(); //this function doesn't work properly yet. Still need to figure out the logic behind it.
 };
 
 // NEXT STEPS: WORK ON CLEAR FUNCTION
-// NEXT STEPS: VALIDATE/WARN USER TO ENTER ONLY NUMERIC CHARACTERS ON LENGTH PROMPT
-// NEXT STEPS: CREATE README
+// NEXT STEPS: CREATE README FILE
 // ===================================================================================================
 clear = () => {
   handleGeneratePassword.addEventListener("click", function() {
-    textArea.value = "";
-  });
-
-  handleGeneratePassword.addEventListener("click", function() {
-    userLength = prompt(
-      "How many characters do you want? Choose between 8 - 128."
-    );
-    validateLength();
+    return textArea.append("");
   });
 };
+
+
+// user has generated password, but needs to generate another one without refreshing page
+// user clicks generate password button again
+// textArea needs to clear
+// run process over again
